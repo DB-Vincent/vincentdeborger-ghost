@@ -14,6 +14,9 @@ var colorFunction = require('postcss-color-mod-function');
 var cssnano = require('cssnano');
 var easyimport = require('postcss-easy-import');
 
+// tailwind
+const tailwind = require('tailwindcss')
+
 function serve(done) {
     livereload.listen();
     done();
@@ -39,6 +42,7 @@ function css(done) {
     var processors = [
         easyimport,
         colorFunction(),
+	tailwind(),
         autoprefixer(),
         cssnano()
     ];
