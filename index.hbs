@@ -1,15 +1,52 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
+<div class="sidebar md:col-span-1 min-w-full md:break-word">
+    <h1 class="text-lg dark:text-white">Vincent De Borger</h1>
+    <h2 class="text-gray-400">Business application engineer</h2>
 
-        <div class="gh-postfeed">
-        {{#foreach posts}}
-
-            {{> "card"}} {{!-- partials/card.hbs --}}
-
-        {{/foreach}}
-        </div>
-
+    {{!-- Icoins --}}
+    <div class="w-24 flex mt-4 text-gray-400">
+        <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%98%95%EF%B8%8F%3C%2Ftext%3E%3C%2Fsvg%3E" type="image/svg+xml">
+        <a href="https://twitter.com/vincentdeborger" aria-label="Personal Twitter account" target="_blank" rel="noopener" class="flex-1"><i class="fab fa-twitter hover:text-black dark:hover:text-white"></i></a>
+        <a href="https://www.linkedin.com/in/vincent-de-borger/" aria-label="Personal LinkedIn account" target="_blank" rel="noopener" class="flex-1"><i class="fab fa-linkedin hover:text-black dark:hover:text-white"></i></a>
+        <a href="https://github.com/DB-Vincent" target="_blank" aria-label="Personal Github account" rel="noopener" class="flex-1"><i class="fab fa-github hover:text-black dark:hover:text-white"></i></a>
     </div>
+</div>
+
+{{!-- The main content area --}}
+<div class="md:col-span-3">
+
+    {{!-- Introduction --}}
+    <div class="my-8 md:my-0">
+        <p class="leading-loose dark:text-white">I'm Vincent, a 20y/o Belgian IT Student working on various projects concerning virtualization and infrastructure management. Currently I'm studying Systems, Services and Security at Thomas More where I get to work with VMWare vSphere, Cisco IOS, AWS and much more. </br></br>Besides spending my time working with hypervisors I work with Terraform and Ansible to configure and deploy machines in AWS and ESXi environments. Aside from studying I'm often working on one of my projects, called 'Het Serverkot', in this project I'm working with enterprise-grade server equipment together with some of my colleague-students.</p>
+    </div>
+
+    {{!-- Posts --}}
+    <div class="mt-32 md:mt-48">
+        <h3 class="text-sm text-gray-400 font-serif tracking-wider mb-4">I occasionally write things</h3>
+        
+        {{#foreach posts}}
+        <div class="mb-10 last-of-type:mb-0">
+            <a href="{{ url }}" aria-label="{{ title }}">
+                <h1 class="text-2xl dark:text-white">{{ title }}</h1>
+                <p class="text-gray-400 mt-2">{{ excerpt words="32" }}..</p>
+            </a>
+            <div class="mt-4 w-64 grid grid-cols-2">
+                <h2 class="text-sm text-blue-400">{{ date published_at timeago="true" }}</h2>
+                <h2 class="text-sm text-blue-400">{{ reading_time }}</h2>
+            </div>
+        </div>
+        {{/foreach}}
+    </div>
+    
+    {{!-- Contact --}}
+    <div class="mt-32 md:mt-48">
+        <h3 class="text-sm text-gray-400 font-serif tracking-wider">Let's get in touch</h3>
+        <a href="mailto:hello@vincentdeborger.be"><span class="text-2xl md:text-4xl text-blue-400 break-all">hello@vincentdeborger.be</span></a>
+    </div>
+
+    {{!-- Footer --}}
+    <footer class="mt-32 md:mt-48">
+        <span class="text-gray-300 dark:text-gray-500">Made in 2021 by myself using <a href="http://https://ghost.org/" class="text-gray-500 dark:text-gray-300">Ghost</a>, <a href="https://tailwindcss.com/" class="text-gray-500 dark:text-gray-300">Tailwind</a> and lots of <span class="text-gray-500 dark:text-gray-300 coffee-cursor">coffee</span>.</span>
+    </footer>
 </div>
